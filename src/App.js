@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { useEffect, useState } from "react";
+import Hello from "./day1/Hello";
+import Login from "./day1/Login";
+import Weather from "./day1/Weather";
+const App =()=> {
+  const [userName,setUserName]=useState(null);
+  const handleLogin=(data)=>{
+    localStorage.setItem("USER-NAME",data);
+    setUserName(data);
+  }
+  useEffect(()=>{
+    //로컬 스토리지에 userName이 있는지 체크
+    const saved = localStorage.getItem("USER_NAME");
+    setUserName(saved);
+  },[]);
+    const handleClick =()=>{
+      const saved = localStorage.getItem("USER-NAME");
+      setUserName(saved);
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="App">
+      {
+        userName ? <Hello user={userName} onLogout={handleClick}/> : <Login onLogin={handleLogin}/>
+      }
+      <Weather/>
     </div>
   );
 }
