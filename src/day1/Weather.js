@@ -17,7 +17,7 @@ const Weather = () => {
             const res = await axios.get(URL);
         setWeather(res.data);
         const iconCode = res.data.weather[0].icon;
-        const ICON= ` https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        const ICON=`https://openweathermap.org/img/wn/${iconCode}@2x.png`;
         setIconURL(ICON);
     }catch(err){
         setError("날시 정보를 가지고 올 수 없습니다."+err.message);
@@ -30,13 +30,13 @@ const Weather = () => {
         const option = {
             enableHighAccuracy:true,
             timeout: 5000,
-            maximunAge:0
+            maximumAge:0
         }
         if("geolocation" in navigator){
             navigator.geolocation.getCurrentPosition((position)=>{
-                const{latitude,longgitude}=position.coords;
+                const{latitude,longitude}=position.coords;
                 //날씨 API 호출
-                fetchWeather(latitude,longgitude);
+                fetchWeather(latitude,longitude);
             },(err)=>{
                 setError('위치정보를 가져올 수 없습니다.'+err.message);
             },
