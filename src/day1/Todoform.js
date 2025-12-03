@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Todoform = ({onSave}) => {
+const Todoform = ({onSave,onLogout}) => {
     const [task,setTask]=useState('')
     const handleSubmit =(e)=>{
         e.preventDefault(); //기존 기능 방지
@@ -23,6 +23,7 @@ const Todoform = ({onSave}) => {
                 onChange={((e)=>{setTask(e.target.value)})}
                 // onKeyDown={handleKeyDown}
             />
+        <button>추가</button>
         </form>
     </div>
   )

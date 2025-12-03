@@ -2,7 +2,7 @@ import Todoform from "./Todoform"
 import Todolist from "./Todolist"
 import { useEffect, useState } from "react";
 import "../day1/Todo.css";
-const Todos = () => {
+const Todos = ({onLogout}) => {
     /*
     id: 현재시간 Date.now() : 
     done:true/false
@@ -43,7 +43,13 @@ const Todos = () => {
     }
   return (
     <div id="todo-page">
+        <div className="nav">
+        <div className="txt"><span>𝓛</span></div>
+        <button onClick={onLogout}>LOGOUT</button>
+        </div>
+        <div className="input">
         <Todoform onSave={handleTodosSave}/>
+        </div>
         <Todolist todos={todos} onDel={handleDelete} onToggle={handleToggle}/>
     </div>
   )

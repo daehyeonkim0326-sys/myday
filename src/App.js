@@ -1,40 +1,51 @@
-import { useEffect, useState } from "react";
-import Hello from "./day1/Hello";
-import Login from "./day1/Login";
-import Weather from "./day1/Weather";
-import Todos from "./day1/Todos";
-import Quote from "./day1/Quote";
-import "./App.css";
-const App =()=> {
-  
-  const [userName,setUserName]=useState(null);
-  
-  const handleLogin=(data)=>{
-    localStorage.setItem("USER-NAME",data);
-    setUserName(data);
-  }
-  useEffect(()=>{
-    //로컬 스토리지에 userName이 있는지 체크
+import { useState, useEffect } from "react";
+import Login from "./day1/Login.js";
+import Todos from "./day1/Todos.js";
+import Quote from "./day1/Quote.js";
+import "../src/App.css"
+
+function App() {
+  const [userName, setUserName] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // 로그인 시 실행
+  const handleLogin = (email, password) => {
+    if (!email || !password) return; // 둘 중 하나라도 비어 있으면 로그인 안 함
+
+    // 유저 이름/이메일을 localStorage에 저장
+    localStorage.setItem("USER_NAME", email);
+    setUserName(email);
+    setIsLoggedIn(true);
+  };
+
+  // 새로고침해도 로그인 유지
+  useEffect(() => {
     const saved = localStorage.getItem("USER_NAME");
-    setUserName(saved);
-  },[]);
-    const handleClick =()=>{
-      // const saved = localStorage.getItem("USER-NAME");
-      localStorage.clear();
-      // setUserName('');
-      window.location.reload();
+    if (saved) {
+      setUserName(saved);
+      setIsLoggedIn(true);
     }
-    
+  }, []);
+
+  //로그아웃하고 싶으면 이런 함수 쓰면 됨
+  const handleLogout = () => {
+    localStorage.removeItem("USER_NAME");
+    setUserName("");
+    setIsLoggedIn(false);
+  };
+
   return (
     <div id="App">
-      {
-        userName ? <Hello user={userName} onLogout={handleClick}/> : <Login onLogin={handleLogin}/>
-      }
-      <Quote/>
-      <Todos/>
-      <Weather/>
+      {isLoggedIn ? (
+        <Todos user={userName} onLogout={handleLogout}/>
+      ) : (
+        <Login onLogin={handleLogin}/>
+      )}
+      <Quote />
+      
     </div>
   );
 }
 
 export default App;
+
