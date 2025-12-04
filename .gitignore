@@ -2,9 +2,6 @@
 
 # dependencies
 /node_modules
-dist
-build
-.cache
 /.pnp
 .pnp.js
 
