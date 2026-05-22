@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.04a27214.css",
-    "main.js": "/static/js/main.7f23d387.js",
-    "static/media/img-3.jpg": "/static/media/img-3.c7f87a55b88f39448231.jpg",
-    "index.html": "/index.html",
-    "main.04a27214.css.map": "/static/css/main.04a27214.css.map",
-    "main.7f23d387.js.map": "/static/js/main.7f23d387.js.map"
+    "main.css": "/myday/static/css/main.98eed21e.css",
+    "main.js": "/myday/static/js/main.aa3fa2f1.js",
+    "static/media/SunBatang-Bold.ttf": "/myday/static/media/SunBatang-Bold.834168246b588ece1449.ttf",
+    "static/media/img-3.jpg": "/myday/static/media/img-3.c7f87a55b88f39448231.jpg",
+    "index.html": "/myday/index.html",
+    "main.98eed21e.css.map": "/myday/static/css/main.98eed21e.css.map",
+    "main.aa3fa2f1.js.map": "/myday/static/js/main.aa3fa2f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.04a27214.css",
-    "static/js/main.7f23d387.js"
+    "static/css/main.98eed21e.css",
+    "static/js/main.aa3fa2f1.js"
   ]
 }
