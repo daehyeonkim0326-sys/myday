@@ -40,7 +40,7 @@ const Login = ({onLogin}) => {
   return (
     <form id="login-page" onSubmit={handleSubmit}>
       <nav>
-        <div className="txt"><span>𝓛</span></div>
+        <div className="txt" onClick={() => window.location.reload()}><span>𝓛</span></div>
         <Weather />
       </nav>
         <div 
@@ -53,7 +53,6 @@ const Login = ({onLogin}) => {
           padding: "12px 16px",
           borderRadius: "12px",
           color: "#fff",
-          fontFamily: "system-ui, -apple-system, BlinkMacSystemFont",
         }}
         >
           <h2>Welcome to Listland!</h2>

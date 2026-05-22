@@ -15,7 +15,7 @@ const Todoform = ({onSave,onLogout}) => {
     // }
     return (
     <div id="todo-form">
-        <h2>할 일 내용을 입력하세요.</h2>
+        <h2>할 일을 입력하세요.</h2>
         <form onSubmit={handleSubmit}>
             <input 
                 type="text"

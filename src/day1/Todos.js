@@ -44,13 +44,17 @@ const Todos = ({onLogout}) => {
   return (
     <div id="todo-page">
         <div className="nav">
-        <div className="txt"><span>𝓛</span></div>
+        <div className="txt" onClick={()=>window.location.reload()}><span>𝓛</span></div>
         <button onClick={onLogout}>LOGOUT</button>
         </div>
+        <div className="li">
+    <div className="color">
         <div className="input">
         <Todoform onSave={handleTodosSave}/>
         </div>
         <Todolist todos={todos} onDel={handleDelete} onToggle={handleToggle}/>
+        </div>
+    </div>
     </div>
   )
 }

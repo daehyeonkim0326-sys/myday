@@ -2,13 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Weather = () => {
-    const KEY = '7032cf5ed7aaf73118e6611eae8f1216';  
-    
+    const KEY = '7032cf5ed7aaf73118e6611eae8f1216'; 
     //상태관리
     const [weather,setWeather] = useState(null);
     const [iconURL, setIconURL] = useState('');
     const[error,setError]=useState(null);
     const [loading,setLoading] = useState(false);
+    const tempClassName = weather?.main.temp < 0 ? "temp cold" : "temp warm";
     const fetchWeather = async(lat,lon)=>{
         try{
             setError('');
@@ -47,21 +47,21 @@ const Weather = () => {
     },[]);
   return (
     <div id="weatherpage">
-        {loading && <p className="loading">날씨 정보를 가져오는중...</p>}
+        {/* {loading && <p className="loading">날씨 정보를 가져오는중...</p>} */}
         {error && <p className="error">{error}</p>}
-        {!weather && <p>위치 정보를 기다리는 중...</p>}
+        {/* {!weather && <p>위치 정보를 기다리는 중...</p>} */}
         {
             weather&&(
         <>
-    <div className="pa">
+    <div className="pa" onClick={()=>window.open('https://openweathermap.org/')}>
         {
             iconURL &&
             <img src={iconURL} alt={weather.weather[0].description}/>
         }
-        <p>{weather.name}</p>
-        <p>{weather.main.temp}℃</p>
+        <p className={tempClassName}>{weather.main.temp}℃</p>
+        <p className="name">{weather.name}</p>
         </div>
-        
+
 
         </>
         )

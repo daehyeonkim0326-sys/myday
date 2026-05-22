@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import Login from "./day1/Login.js";
 import Todos from "./day1/Todos.js";
 import Quote from "./day1/Quote.js";
-import "../src/App.css"
-
+import "../src/App.css";
 function App() {
   const [userName, setUserName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);

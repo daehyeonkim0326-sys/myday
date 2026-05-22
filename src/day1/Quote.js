@@ -1,4 +1,5 @@
 import quoteData from '../data/quoteData.json'
+import './Todo.css'
 const Quote = () => {
     //숫자를 random처리 : Math.random
     const index = Math.floor(Math.random()*quoteData.length);
